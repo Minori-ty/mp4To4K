@@ -1,5 +1,5 @@
 {
-    "name": "transto4k",
+    "name": "video",
     "version": "1.0.0",
     "description": "",
     "main": "./dist/index.js",
@@ -7,7 +7,7 @@
     "scripts": {
         "dev:node": "node ./dist/index.js",
         "dev": "esno index.ts",
-        "build": "pkg -t win package.json",
+        "build": "pkg -t win package.json && node build.js",
         "webpack": "webpack"
     },
     "keywords": [],
@@ -26,6 +26,5 @@
     "dependencies": {
         "inquirer": "^9.1.0",
         "shelljs": "^0.8.5"
-    },
-    "icon": "./app.ico"
+    }
 }

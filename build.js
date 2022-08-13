@@ -2,11 +2,11 @@ const ResEdit = require('resedit')
 const PELibrary = require('pe-library')
 const fs = require('fs')
 
-let data = fs.readFileSync('transto4k.exe')
+let data = fs.readFileSync('video.exe')
 let exe = PELibrary.NtExecutable.from(data)
 let res = PELibrary.NtExecutableResource.from(exe)
 
-let iconFile = ResEdit.Data.IconFile.from(fs.readFileSync('logo.ico'))
+let iconFile = ResEdit.Data.IconFile.from(fs.readFileSync('./src/assets/logo.ico'))
 
 ResEdit.Resource.IconGroupEntry.replaceIconsForResource(
     res.entries,
@@ -17,4 +17,5 @@ ResEdit.Resource.IconGroupEntry.replaceIconsForResource(
 
 res.outputResource(exe)
 let newBinary = exe.generate()
-fs.writeFileSync('./transto4k.exe', new Buffer(newBinary))
+fs.writeFileSync('./video.exe', Buffer.from(newBinary))
+fs.renameSync('./video.exe', './一键转4K视频.exe')
