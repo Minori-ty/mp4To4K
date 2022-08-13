@@ -1,0 +1,7 @@
+node_modules
+dist
+img_out
+img_temp
+input
+output
+*.exe
